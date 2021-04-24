@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['reset' => false]);
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'datafilter']], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

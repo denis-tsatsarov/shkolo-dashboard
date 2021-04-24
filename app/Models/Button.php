@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class Button extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -16,9 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_id',
+        'index',
+        'title',
+        'link',
+        'color',
     ];
 
     /**
@@ -26,10 +27,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast to native types.
@@ -37,12 +35,4 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [];
-
-    /**
-     * Get the buttons for the user.
-     */
-    public function buttons()
-    {
-        return $this->hasMany(Button::class);
-    }
 }
