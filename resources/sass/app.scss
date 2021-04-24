@@ -1,0 +1,143 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    margin-left: -250px;
+    background: $primary;
+    color: #fff;
+    transition: all 0.3s;
+
+    &.active {
+        margin-left: 0;
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+
+    a, a:hover, a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: rotate(90deg);
+    }
+
+    ul.components {
+        padding: 20px 0;
+    }
+}
+
+// @media (max-width: 768px) {
+//     #sidebar {
+//         margin-left: -250px;
+//     }
+//     #sidebar.active {
+//         margin-left: 0;
+//     }
+// }
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: $primary;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: $cyan;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: $cyan;
+}
+
+body,html,.page, #app {
+    height:100%;
+}
+
+.navbar {
+    background-color: $primary;
+}
+
+.navbar-brand, .navbar-brand:hover {
+    color: $white;
+}
+
+#navbarDropdown {
+    color: $white;
+}
+
+#navbarDropdown:hover, #navbarDropdown:visited {
+    background: $primary;
+}
+
+@media (min-width: 576px) {
+    .container-sm, .container {
+        max-width: 100%;
+    }
+  }
+  @media (min-width: 768px) {
+    .container-md, .container-sm, .container {
+        max-width: 100%;
+    }
+  }
+  @media (min-width: 992px) {
+    .container-lg, .container-md, .container-sm, .container {
+        max-width: 100%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 100%;
+    }
+}
+
+.navbar-dark .navbar-toggler {
+    color: $white;
+    border: 1px solid $white;
+}
+
+.sidebar-toggler {
+    padding: 0 1rem;
+    background-color: $primary;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: $white;
+}
