@@ -1,16 +1,11 @@
 @auth
     <nav id="sidebar" class="active">
         <ul class="list-unstyled components">
-            <li>
-                <a href="#">{{ __('Home') }}</a>
+            <li class="{{ request()->segment(1) == '' ? 'active' : '' }}">
+                <a href="{{ route('home') }}">{{ __('Home') }}</a>
             </li>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ __('Settings') }}</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">{{ __('Buttons') }}</a>
-                    </li>
-                </ul>
+            <li class="{{ request()->segment(1) == 'buttons' ? 'active' : '' }}">
+                <a href="{{ route('buttons') }}">{{ __('Buttons') }}</a>
             </li>
         </ul>
     </nav>

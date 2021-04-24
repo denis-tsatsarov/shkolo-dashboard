@@ -11,4 +11,11 @@ class ButtonsController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function list()
+    {
+        $buttons = Button::orderBy('index')->get();
+        
+        return view('buttons.list', ['buttons' => $buttons]);
+    }
 }

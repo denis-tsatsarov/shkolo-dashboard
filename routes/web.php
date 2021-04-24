@@ -17,4 +17,5 @@ Auth::routes(['reset' => false]);
 
 Route::group(['middleware' => ['auth', 'datafilter']], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/buttons', [App\Http\Controllers\ButtonsController::class, 'list'])->name('buttons');
 });
