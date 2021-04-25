@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="row table-responsive">
         @include('components.status')   
         @if ($buttons->count())
             <table class="table table-bordered">

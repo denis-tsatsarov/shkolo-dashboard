@@ -23,5 +23,7 @@ Route::group(['middleware' => ['auth', 'datafilter']], function () {
         Route::get('/{index}/edit', [App\Http\Controllers\ButtonsController::class, 'editView'])->name('buttons.editView');
         Route::post('/{index}/delete', [App\Http\Controllers\ButtonsController::class, 'delete'])->name('buttons.delete');
         Route::post('/{index}/update', [App\Http\Controllers\ButtonsController::class, 'edit'])->name('buttons.edit');
+        Route::get('/{index}/configure', [App\Http\Controllers\ButtonsController::class, 'configure'])->name('buttons.configure');
+        Route::post('/{index}/save', [App\Http\Controllers\ButtonsController::class, 'save'])->name('buttons.save');
     });
 });

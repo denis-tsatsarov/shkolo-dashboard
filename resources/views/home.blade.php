@@ -11,7 +11,7 @@
                     <a 
                         class="btn" 
                         title="{{ $btn['title'] ?? '' }}"
-                        href="{{ $btn['configured'] ? $btn['link'] : '' }}"
+                        href="{{ $btn['configured'] && !is_null($btn['link']) ? $btn['link'] : route('buttons.configure', $btn['index']) }}"
                     ><img class="dashboard-icon" src="{{ asset('images/btn-icon.png') }}"></a>
                 </div>
             </div>
