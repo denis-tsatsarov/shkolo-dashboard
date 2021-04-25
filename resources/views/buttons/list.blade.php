@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="row">
-        @if (!empty($buttons))
+        @include('components.status')   
+        @if ($buttons->count())
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -23,8 +24,22 @@
                         <td>
                             <div class="btn-group">
                                 @can('manage', $btn)
-                                    <a class="btn btn-outline-primary mr-2 rounded-right" href="{{ route('buttons.editView', $btn['index']) }}" role="button">{{ __('Edit') }}</a>
-                                    <a class="btn btn-outline-danger rounded-left" href="#" role="button">{{ __('Delete') }}</a>
+                                    <a 
+                                        class="btn btn-outline-primary mr-2 rounded-right" 
+                                        href="{{ route('buttons.editView', $btn['index']) }}" 
+                                        role="button"
+                                    >{{ __('Edit') }}</a>
+                                    <form
+                                        method="POST"
+                                        action="{{ route('buttons.delete', $btn['index']) }}"
+                                    >
+                                        @csrf
+                                        <input type="hidden" name="index" value="{{ $btn['index'] }}"/>
+                                        <button 
+                                            class="btn btn-outline-danger rounded-left" 
+                                            onclick="return confirm('You want to delete this configuration?')" 
+                                            type="submit"
+                                        >{{ __('Delete') }}</button>
                                 @endcan
                             </div>
                         </td>

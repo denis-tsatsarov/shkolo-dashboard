@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Button;
 use Illuminate\Http\Request;
 use App\Services\ButtonService;
 use Illuminate\Support\Facades\Gate;
@@ -65,6 +66,23 @@ class ButtonsController extends Controller
         }
 
         return redirect()->route('buttons.editView', ['index' => $button['index']])
-            ->with('alert-success', trans('Successful update'));
+            ->with('alert-success', __('Successful update'));
+    }
+
+    public function delete()
+    {
+        $button = ButtonService::getByIndex(request()->index);
+
+        Gate::authorize('manage', $button);
+
+        $status = Button::destroy($button->id);
+
+        if (!$status) {
+            return redirect()->back()
+                ->with('alert-danger', __('Delete error'))
+                ->withInput();
+        }
+
+        return redirect()->route('buttons')->with('alert-success', __('Successful delete'));
     }
 }

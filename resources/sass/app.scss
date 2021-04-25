@@ -142,8 +142,6 @@ body {
     z-index: 1;
 }
 
-.js-color-picker {
-    option {
-        background: $white;
-    }
+.js-color-picker-label {
+    padding: 5px 7px;
 }
