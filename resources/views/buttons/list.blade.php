@@ -20,7 +20,14 @@
                             <td>{{ $btn['title'] }}</td>
                             <td>{{ $btn['link'] }}</td>
                             <td>{{ $btn['color'] }}</td>
-                            <td></td>
+                            <td>
+                                <div class="btn-group">
+                                    @can('manage', $btn)
+                                        <a class="btn btn-outline-primary mr-2 rounded-right" href="#" role="button">{{ __('Edit') }}</a>
+                                        <a class="btn btn-outline-danger rounded-left" href="#" role="button">{{ __('Delete') }}</a>
+                                    @endcan
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
