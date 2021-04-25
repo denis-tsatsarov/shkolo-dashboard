@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Button;
 use Illuminate\Http\Request;
+use App\Services\ButtonService;
 
 class ButtonsController extends Controller
 {
@@ -13,9 +13,12 @@ class ButtonsController extends Controller
     }
 
     public function list()
-    {
-        $buttons = Button::orderBy('index')->get();
-        
-        return view('buttons.list', ['buttons' => $buttons]);
+    {  
+        return view(
+            'buttons.list', 
+            [
+                'buttons' => ButtonService::getConfigured()
+            ]
+        );
     }
 }
