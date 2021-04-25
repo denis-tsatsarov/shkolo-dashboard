@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Button;
+use Illuminate\Support\Facades\Validator;
 
 class ButtonService {
 
@@ -27,5 +28,22 @@ class ButtonService {
     public static function getConfigured()
     {
         return Button::orderBy('index')->get();
+    }
+
+    public static function getByIndex($index)
+    {
+        return Button::where('index', $index)->first();
+    }
+
+    public static function validate($data)
+    {
+        return Validator::make(
+            $data, 
+            [
+                'title' => ['nullable', 'string', 'max:100'],
+                'link' =>  ['nullable', 'string', 'max:100'],
+                'color' => ['nullable', 'string', 'max:100'],
+            ]
+        );
     }
 }

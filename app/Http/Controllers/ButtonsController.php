@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ButtonService;
+use Illuminate\Support\Facades\Gate;
 
 class ButtonsController extends Controller
 {
@@ -20,5 +21,50 @@ class ButtonsController extends Controller
                 'buttons' => ButtonService::getConfigured()
             ]
         );
+    }
+
+    public function editView($index)
+    {
+        $button = ButtonService::getByIndex($index);
+
+        Gate::authorize('manage', $button);
+        
+        return view(
+            'buttons.edit', 
+            [
+                'button' => $button
+            ]
+        );
+    }
+
+    public function edit($index)
+    {
+        $button = ButtonService::getByIndex($index);
+
+        Gate::authorize('manage', $button);
+
+        $data = request()->all();
+        $validator = ButtonService::validate($data);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('alert-danger', __('Edit error'))
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
+
+        $button->title = $data['title'];
+        $button->link = $data['link'];
+        $button->color = $data['color'];
+        $status = $button->save();
+
+        if (!$status) {
+            return redirect()->back()
+                ->with('alert-danger', __('Edit error'))
+                ->withInput();
+        }
+
+        return redirect()->route('buttons.editView', ['index' => $button['index']])
+            ->with('alert-success', trans('Successful update'));
     }
 }

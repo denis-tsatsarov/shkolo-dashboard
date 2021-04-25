@@ -5,7 +5,22 @@ $(document).ready(function () {
         $($(this).data('toggle')).toggleClass('active').addClass('transition');
     });
 
-    if ($('#sidebar').length && $(window).width() < 768 && $('#sidebar').hasClass('active')) {
-        $('#sidebar').removeClass('active');
+    if ($('.js-color-picker').length) {
+        var $picker = $('.js-color-picker');
+
+        function updatePickerLabelBackground() {
+            var $pickerLabel = $('.js-color-picker-label');
+
+            $pickerLabel.css(
+                'background', 
+                $picker.val() != '' ? $picker.val() : 'white'
+            );
+        }
+
+        updatePickerLabelBackground();
+
+        $picker.on('change', function() {
+            updatePickerLabelBackground();
+        });
     }
 });

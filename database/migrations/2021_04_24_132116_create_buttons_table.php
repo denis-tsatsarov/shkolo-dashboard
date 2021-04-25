@@ -20,9 +20,9 @@ class CreateButtonsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->smallInteger('index');
-            $table->string('title', 100);
-            $table->string('link', 100);
-            $table->string('color', 100);
+            $table->string('title', 100)->nullable();
+            $table->string('link', 100)->nullable();
+            $table->string('color', 100)->nullable();
             $table->timestamps();
             $table->unique(['user_id', 'index']);
         });
