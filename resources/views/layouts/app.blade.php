@@ -29,7 +29,7 @@
             </div>
         </nav>
         <div class="page">
-            @include('partials.sidenav.toggler', ['rowClasses' => 'd-md-none'])
+            @include('partials.sidenav.toggler', ['rowClasses' => 'd-md-none pb-3'])
             <div class="wrapper">
                 @include('partials.sidenav.menu')
                 <div id="content" class="container">

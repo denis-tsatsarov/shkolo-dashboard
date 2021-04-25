@@ -1,5 +1,5 @@
 @auth
-    <nav id="sidebar" class="active">
+    <nav id="sidebar">
         <ul class="list-unstyled components">
             <li class="{{ request()->segment(1) == '' ? 'active' : '' }}">
                 <a href="{{ route('home') }}">{{ __('Home') }}</a>

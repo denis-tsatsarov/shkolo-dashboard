@@ -7,7 +7,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>{{ __('Index') }}</th>
                             <th>{{ __('Title') }}</th>
                             <th>{{ __('Link') }}</th>
                             <th>{{ __('Color') }}</th>
