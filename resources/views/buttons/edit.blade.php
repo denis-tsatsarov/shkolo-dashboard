@@ -53,5 +53,6 @@
                 </div>
             </div>
         </div>
+        @include('components.go_to_btn', ['route' => 'buttons', 'text' => __('Go to buttons listing')])
     </div>
 @endsection

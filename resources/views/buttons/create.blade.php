@@ -54,5 +54,6 @@
                 </div>
             </div>
         </div>
+        @include('components.go_to_btn', ['route' => 'home', 'text' => __('Go to home page')])
     </div>
 @endsection
