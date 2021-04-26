@@ -8,10 +8,10 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "postinstall": "npm run prod"
+        "postinstall": "npm run prod",
+        "heroku-postbuild": "npm run prod"
     },
     "heroku-run-build-script": true,
-    "heroku-postbuild": "npm run prod",
     "devDependencies": {
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
