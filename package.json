@@ -9,6 +9,7 @@
         "prod": "npm run production",
         "production": "mix --production"
     },
+    "heroku-run-build-script": true,
     "devDependencies": {
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
