@@ -25,7 +25,8 @@
         "sass-loader": "^8.0.0"
     },
     "engines": {
-        "node": "14.16.1"
+        "node": "14.16.1",
+        "npm": "6.14.12"
     },
     "optionalDependencies": {
         "fsevents": "^2.3.2"
