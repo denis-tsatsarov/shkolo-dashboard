@@ -1,6 +1,6 @@
 @foreach (['success', 'info', 'danger', 'warning'] as $msg)
     @if (Session::has('alert-' . $msg))
-        <div class="col-lg-12">
+        <div class="col-lg-12 px-0">
             <div class="flash-message">
                 @if (is_array(Session::get('alert-' . $msg)))
                     @foreach (Session::get('alert-' . $msg) as $alertMsg)

@@ -10,29 +10,29 @@
                     <form method="POST" action="{{ route('buttons.save', ['index' => $index]) }}">
                         @csrf
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">{{ __('Index') }}</label>
-                            <div class="col-sm-9 text-left">
+                            <label class="col-sm-2 text-left col-form-label">{{ __('Index') }}</label>
+                            <div class="col-sm-10 text-left">
                                 <input type="number" name="index" readonly class="form-control" value="{{ $index }}">
                                 <span class="text-danger">{{ $errors->first('index') }}</span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">{{ __('Title') }}</label>
-                            <div class="col-sm-9 text-left">
+                            <label class="col-sm-2 text-left col-form-label">{{ __('Title') }}</label>
+                            <div class="col-sm-10 text-left">
                                 <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                                 <span class="text-danger">{{ $errors->first('title') }}</span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">{{ __('Link') }}</label>
-                            <div class="col-sm-9 text-left">
+                            <label class="col-sm-2 text-left col-form-label">{{ __('Link') }}</label>
+                            <div class="col-sm-10 text-left">
                                 <input type="text" name="link" class="form-control" value="{{ old('link') }}">
                                 <span class="text-danger">{{ $errors->first('link') }}</span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label"><span class=" js-color-picker-label rounded">{{ __('Color') }}</span></label>
-                            <div class="col-sm-9 text-left">
+                            <label class="col-sm-2 text-left col-form-label"><span class=" js-color-picker-label rounded">{{ __('Color') }}</span></label>
+                            <div class="col-sm-10 text-left">
                                 <select name="color" class="custom-select js-color-picker">
                                     <option value="">{{ __('Pick a color') }}</option>
                                     @foreach (config('buttons.colors') as $color) 
@@ -54,6 +54,5 @@
                 </div>
             </div>
         </div>
-        @include('components.go_to_btn', ['route' => 'home', 'text' => __('Go to home page')])
     </div>
 @endsection

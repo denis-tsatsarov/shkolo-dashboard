@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row table-responsive">
+    <div class="row table-responsive mx-0">
         @include('components.status')   
         @if ($buttons->count())
             <table class="table table-bordered">
@@ -47,6 +47,10 @@
                 @endforeach
                 </tbody>
             </table>
+        @else
+            <div class="alert alert-primary text-center">
+                There are no configured buttons. <a href="{{ route('home') }}" class="alert-link">Go to home page.</a>
+            </div>
         @endif
     </div>
 @endsection
